@@ -28,7 +28,7 @@ class CourseControllerTest {
     @Test
     void should_retrieve_course_by_code() throws Exception {
         courseRepository.save(new Course("java-1", "Java OO", "Java and Object Orientation: Encapsulation, Inheritance and Polymorphism."));
-
+        
         mockMvc.perform(get("/courses/java-1")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
