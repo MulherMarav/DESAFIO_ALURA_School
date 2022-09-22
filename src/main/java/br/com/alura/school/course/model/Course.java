@@ -13,10 +13,8 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import br.com.alura.school.section.model.Section;
-
 @Entity
-class Course {
+public class Course {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
@@ -38,24 +36,24 @@ class Course {
 	private List<Section> sections = new ArrayList<>();	
 
 	@Deprecated
-	protected Course() {
+	public Course() {
 	}
 
-	Course(String code, String name, String description) {
+	public Course(String code, String name, String description) {
 		this.code = code;
 		this.name = name;
 		this.description = description;
 	}
 
-	String getCode() {
+	public String getCode() {
 		return code;
 	}
 
-	String getName() {
+	public String getName() {
 		return name;
 	}
 
-	String getDescription() {
+	public String getDescription() {
 		return description;
 	}
 

@@ -1,12 +1,14 @@
-package br.com.alura.school.section.request;
+package br.com.alura.school.course.request;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import br.com.alura.school.section.model.Section;
+import br.com.alura.school.course.model.Course;
+import br.com.alura.school.course.model.Section;
 import br.com.alura.school.support.validation.Unique;
+import br.com.alura.school.user.model.User;
 
 public class NewSectionRequest {
 
@@ -36,8 +38,12 @@ public class NewSectionRequest {
 	public String getAuthorUsername() {
 		return authorUsername;
 	}
+	
+	public String getCode() {
+		return code;
+	}
 
-	Section toEntity() {
-		return new Section(code, title, authorUsername);
+	public Section toEntity(User author, Course course) {
+		return new Section(code, title, author, course);
 	}
 }

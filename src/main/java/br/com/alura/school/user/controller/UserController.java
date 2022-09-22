@@ -1,9 +1,5 @@
 package br.com.alura.school.user.controller;
 
-import static java.lang.String.format;
-
-import java.net.URI;
-
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
@@ -14,13 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.alura.school.user.request.NewUserRequest;
-import br.com.alura.school.user.response.UserResponse;
 import br.com.alura.school.user.service.UserService;
 
 @RestController
 @RequestMapping("/users")
-class UserController {
+public class UserController {
     
     private final UserService userService;
 

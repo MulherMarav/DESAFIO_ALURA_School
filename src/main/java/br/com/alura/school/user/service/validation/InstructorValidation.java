@@ -2,7 +2,7 @@ package br.com.alura.school.user.service.validation;
 
 import br.com.alura.school.user.model.User;
 
-public interface UserValidation {
+public interface InstructorValidation {
 	
-	User validateUserByUsername(String username);
+	void isAnInstructor(User user);
 }

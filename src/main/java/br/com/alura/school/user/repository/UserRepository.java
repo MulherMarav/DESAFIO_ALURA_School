@@ -6,6 +6,7 @@ import br.com.alura.school.user.model.User;
 
 import java.util.Optional;
 
-interface UserRepository extends JpaRepository<User, Long> {
-    Optional<User> findByUsername(String username);
+public interface UserRepository extends JpaRepository<User, Long> {
+   
+	Optional<User> findByUsername(String username);
 }

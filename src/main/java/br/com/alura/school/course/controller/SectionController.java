@@ -1,4 +1,4 @@
-package br.com.alura.school.section.controller;
+package br.com.alura.school.course.controller;
 
 import javax.validation.Valid;
 
@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.alura.school.section.request.NewSectionRequest;
-import br.com.alura.school.section.service.SectionService;
+import br.com.alura.school.course.request.NewSectionRequest;
+import br.com.alura.school.course.service.SectionService;
 
 @RestController
-@RequestMapping("/courses/{courseCode}/sections")
+@RequestMapping("/courses/{code}/sections")
 public class SectionController {
-	
+
 	private final SectionService sectionService;
 
 	public SectionController(SectionService sectionService) {
@@ -23,8 +23,8 @@ public class SectionController {
 	}
 
 	@PostMapping
-	ResponseEntity<Void> newSection(@RequestBody @Valid NewSectionRequest newSectionRequest, 
-			@PathVariable("courseCode") String courseCode) {
+	ResponseEntity<Void> newSection(@RequestBody @Valid NewSectionRequest newSectionRequest,
+			@PathVariable("code") String courseCode) {
 		return ResponseEntity.created(sectionService.newSection(newSectionRequest, courseCode)).build();
 	}
 }

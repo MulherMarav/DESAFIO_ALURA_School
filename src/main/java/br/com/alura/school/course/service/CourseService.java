@@ -10,7 +10,10 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
-import br.com.alura.school.course.service.validation.CourseResponse;
+import br.com.alura.school.course.model.Course;
+import br.com.alura.school.course.repository.CourseRepository;
+import br.com.alura.school.course.request.NewCourseRequest;
+import br.com.alura.school.course.response.CourseResponse;
 import br.com.alura.school.course.service.validation.CourseValidation;
 
 @Service
@@ -20,9 +23,9 @@ public class CourseService {
 	
 	private final CourseValidation courseValidation;
 
-	public CourseService(CourseRepository courseRepository, CourseValidation validationCourse) {
+	public CourseService(CourseRepository courseRepository, CourseValidation courseValidation) {
 		this.courseRepository = courseRepository;
-		this.validationCourse = validationCourse;
+		this.courseValidation = courseValidation;
 	}
 
 	public List<CourseResponse> allCourses() {
@@ -32,7 +35,7 @@ public class CourseService {
 	}
 
 	public CourseResponse courseByCode(String code) {
-		Course course = courseValidation.findByCode(code);
+		Course course = courseValidation.validateFindByCode(code);
 		return new CourseResponse(course);
 	}
 

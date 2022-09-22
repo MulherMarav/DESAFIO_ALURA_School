@@ -1,15 +1,20 @@
 package br.com.alura.school.user.model;
 
-import javax.persistence.*;
+import static br.com.alura.school.user.model.UserRole.STUDENT;
+import static javax.persistence.GenerationType.IDENTITY;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import static br.com.alura.school.user.model.UserRole.STUDENT;
-import static javax.persistence.GenerationType.IDENTITY;
-
 @Entity
-class User {
+public class User {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -29,18 +34,18 @@ class User {
     private UserRole role = STUDENT;
 
     @Deprecated
-    protected User() {}
+    public User() {}
 
-    User(String username, String email) {
+    public User(String username, String email) {
         this.username = username;
         this.email = email;
     }
 
-    String getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    String getEmail() {
+    public String getEmail() {
         return email;
     }
 

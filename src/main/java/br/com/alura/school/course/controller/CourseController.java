@@ -12,15 +12,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.alura.school.course.request.NewCourseRequest;
+import br.com.alura.school.course.response.CourseResponse;
 import br.com.alura.school.course.service.CourseService;
 
 @RestController
 @RequestMapping("/courses")
-class CourseController {
+public class CourseController {
 
 	private final CourseService courseService;
 
-	CourseController(CourseService courseService) {
+	public CourseController(CourseService courseService) {
 		this.courseService = courseService;
 	}
 

@@ -1,13 +1,14 @@
 package br.com.alura.school.course.request;
 
-import br.com.alura.school.course.model.Course;
-import br.com.alura.school.support.validation.Unique;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-class NewCourseRequest {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import br.com.alura.school.course.model.Course;
+import br.com.alura.school.support.validation.Unique;
+
+public class NewCourseRequest {
 
     @Unique(entity = Course.class, field = "code")
     @Size(max=10)
@@ -34,7 +35,7 @@ class NewCourseRequest {
         return code;
     }
 
-    Course toEntity() {
+    public Course toEntity() {
         return new Course(code, name, description);
     }
 }
