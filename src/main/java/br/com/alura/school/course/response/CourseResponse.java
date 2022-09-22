@@ -1,8 +1,8 @@
-package br.com.alura.school.course;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
+package br.com.alura.school.course.response;
 
 import java.util.Optional;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 class CourseResponse {
 
@@ -25,5 +25,4 @@ class CourseResponse {
         if (description.length() <= 13) return description;
         return description.substring(0, 10) + "...";
     }
-
 }

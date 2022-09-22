@@ -1,27 +1,29 @@
-package br.com.alura.school.user;
+package br.com.alura.school.user.service;
 
 import static java.lang.String.format;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 import java.net.URI;
 
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
+
+import br.com.alura.school.user.service.validation.UserValidation;
 
 @Service
 public class UserService {
 
 	private final UserRepository userRepository;
+	
+	private final UserValidation userValidation;
 
-	public UserService(UserRepository userRepository) {
+	public UserService(br.com.alura.school.user.service.UserRepository userRepository, UserValidation userValidation) {
 		this.userRepository = userRepository;
+		this.userValidation = userValidation;
 	}
 
 	public UserResponse userByUsername(String username) {
-		User user = userRepository.findByUsername(username)
-				.orElseThrow(() -> new ResponseStatusException(NOT_FOUND, format("User %s not found", username)));
+		User user = userValidation.userByUsername(username);
 		return new UserResponse(user);
 	}
 

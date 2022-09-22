@@ -1,11 +1,11 @@
-package br.com.alura.school.user;
+package br.com.alura.school.user.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import static br.com.alura.school.user.UserRole.STUDENT;
+import static br.com.alura.school.user.model.UserRole.STUDENT;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -44,4 +44,7 @@ class User {
         return email;
     }
 
+    public UserRole getRole() {
+		return role;
+	}
 }

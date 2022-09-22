@@ -1,6 +1,8 @@
-package br.com.alura.school.user;
+package br.com.alura.school.user.request;
 
 import br.com.alura.school.support.validation.Unique;
+import br.com.alura.school.user.model.User;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.Email;

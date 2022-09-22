@@ -1,6 +1,8 @@
-package br.com.alura.school.user;
+package br.com.alura.school.user.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.com.alura.school.user.model.User;
 
 import java.util.Optional;
 

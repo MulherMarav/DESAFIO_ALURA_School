@@ -1,6 +1,11 @@
 package br.com.alura.school.course;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import br.com.alura.school.course.model.Course;
+import br.com.alura.school.course.repository.CourseRepository;
+import br.com.alura.school.course.request.NewCourseRequest;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;

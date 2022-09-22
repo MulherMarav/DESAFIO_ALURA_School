@@ -1,4 +1,4 @@
-package br.com.alura.school.user;
+package br.com.alura.school.user.controller;
 
 import static java.lang.String.format;
 
@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import br.com.alura.school.user.request.NewUserRequest;
+import br.com.alura.school.user.response.UserResponse;
+import br.com.alura.school.user.service.UserService;
 
 @RestController
 @RequestMapping("/users")

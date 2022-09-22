@@ -1,6 +1,8 @@
-package br.com.alura.school.user;
+package br.com.alura.school.user.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import br.com.alura.school.user.model.User;
 
 class UserResponse {
 

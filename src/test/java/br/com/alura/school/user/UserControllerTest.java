@@ -1,6 +1,11 @@
 package br.com.alura.school.user;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import br.com.alura.school.user.model.User;
+import br.com.alura.school.user.repository.UserRepository;
+import br.com.alura.school.user.request.NewUserRequest;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

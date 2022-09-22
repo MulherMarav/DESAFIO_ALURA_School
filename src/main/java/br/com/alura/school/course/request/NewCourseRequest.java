@@ -1,5 +1,6 @@
-package br.com.alura.school.course;
+package br.com.alura.school.course.request;
 
+import br.com.alura.school.course.model.Course;
 import br.com.alura.school.support.validation.Unique;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
