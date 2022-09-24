@@ -1,9 +1,5 @@
 package br.com.alura.school.course.service;
 
-import static java.lang.String.format;
-
-import java.net.URI;
-
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
@@ -31,16 +27,12 @@ public class VideoService {
 		this.videoRepository = videoRepository;
 	}
 
-	public URI newVideo(@Valid NewVideoRequest newVideoRequest, String sectionCode, String courseCode) {
+	public void newVideo(@Valid NewVideoRequest newVideoRequest, String sectionCode, String courseCode) {
 
 		Section section = sectionValidation.validateFindByCode(sectionCode);
 		
 		videoValidation.validateVideoIsPresent(section);
 		
 		videoRepository.save(newVideoRequest.toEntity(section));
-		
-		URI location = URI.create(format("/courses/%s/sections/%s", courseCode, sectionCode));
-
-		return location;
 	}
 }

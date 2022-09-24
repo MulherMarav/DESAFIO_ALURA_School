@@ -2,6 +2,7 @@ package br.com.alura.school.course.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +26,9 @@ public class VideoController {
 	@PostMapping
 	ResponseEntity<Void> newVideo(@RequestBody @Valid NewVideoRequest newVideoRequest,
 			@PathVariable("courseCode") String courseCode, @PathVariable("sectionCode") String sectionCode) {
-		return ResponseEntity.created(videoService.newVideo(newVideoRequest, sectionCode, courseCode)).build();
+		
+		videoService.newVideo(newVideoRequest, sectionCode, courseCode);
+		
+		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
 }
