@@ -5,13 +5,17 @@ import static javax.persistence.GenerationType.IDENTITY;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import br.com.alura.school.section.model.Section;
 
 @Entity
 public class Course {
@@ -32,7 +36,7 @@ public class Course {
 
 	private String description;
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Section> sections = new ArrayList<>();	
 
 	@Deprecated
@@ -43,6 +47,10 @@ public class Course {
 		this.code = code;
 		this.name = name;
 		this.description = description;
+	}
+	
+	public void addSection(Section section) {
+		this.sections.add(section);
 	}
 
 	public String getCode() {

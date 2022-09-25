@@ -1,4 +1,4 @@
-package br.com.alura.school.course.service.validation;
+package br.com.alura.school.enroll.service.validation;
 
 import br.com.alura.school.course.model.Course;
 import br.com.alura.school.user.model.User;

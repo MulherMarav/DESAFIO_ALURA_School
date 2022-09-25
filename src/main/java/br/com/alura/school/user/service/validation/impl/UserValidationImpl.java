@@ -30,6 +30,6 @@ public class UserValidationImpl implements UserValidation, InstructorValidation 
 	@Override
 	public void isAnInstructor(User user) {
 		if(user.getRole() != UserRole.INSTRUCTOR)
-			new ResponseStatusException(HttpStatus.BAD_REQUEST, String.format("Author %s must be an instructor", user.getUsername()));
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, String.format("Author %s must be an instructor", user.getUsername()));
 	}
 }

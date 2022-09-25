@@ -1,4 +1,4 @@
-package br.com.alura.school.course.controller;
+package br.com.alura.school.enroll.controller;
 
 import javax.validation.Valid;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.alura.school.course.request.NewEnrollRequest;
-import br.com.alura.school.course.service.EnrollService;
+import br.com.alura.school.enroll.request.NewEnrollRequest;
+import br.com.alura.school.enroll.service.EnrollService;
 
 @RestController
 @RequestMapping("/courses/{courseCode}/enroll")

@@ -1,4 +1,4 @@
-package br.com.alura.school.course.controller;
+package br.com.alura.school.section.controller;
 
 import javax.validation.Valid;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.alura.school.course.request.NewVideoRequest;
-import br.com.alura.school.course.service.VideoService;
+import br.com.alura.school.section.request.NewVideoRequest;
+import br.com.alura.school.section.service.VideoService;
 
 @RestController
 @RequestMapping("/courses/{courseCode}/sections/{sectionCode}")

@@ -1,14 +1,14 @@
-package br.com.alura.school.course.service;
+package br.com.alura.school.enroll.service;
 
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
 import br.com.alura.school.course.model.Course;
-import br.com.alura.school.course.repository.EnrollRepository;
-import br.com.alura.school.course.request.NewEnrollRequest;
 import br.com.alura.school.course.service.validation.CourseValidation;
-import br.com.alura.school.course.service.validation.EnrollValidation;
+import br.com.alura.school.enroll.repository.EnrollRepository;
+import br.com.alura.school.enroll.request.NewEnrollRequest;
+import br.com.alura.school.enroll.service.validation.EnrollValidation;
 import br.com.alura.school.user.model.User;
 import br.com.alura.school.user.service.validation.UserValidation;
 
