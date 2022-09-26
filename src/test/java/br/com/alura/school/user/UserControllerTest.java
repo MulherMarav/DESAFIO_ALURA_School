@@ -35,8 +35,7 @@ class UserControllerTest {
 
     @Test
     void should_retrieve_user_by_username() throws Exception {
-        userRepository.save(new User("ana", "ana@email.com"));
-
+    	
         mockMvc.perform(get("/users/ana")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -54,13 +53,13 @@ class UserControllerTest {
 
     @Test
     void should_add_new_user() throws Exception {
-        NewUserRequest newUser = new NewUserRequest("alex", "alex@email.com");
+        NewUserRequest newUser = new NewUserRequest("juliana", "juliana@email.com");
 
         mockMvc.perform(post("/users")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonMapper.writeValueAsString(newUser)))
         .andExpect(status().isCreated())
-        .andExpect(header().string("Location", "/users/alex"));
+        .andExpect(header().string("Location", "/users/juliana"));
     }
 
     @ParameterizedTest

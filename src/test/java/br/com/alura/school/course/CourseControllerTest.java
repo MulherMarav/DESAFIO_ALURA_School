@@ -32,8 +32,7 @@ class CourseControllerTest {
 
     @Test
     void should_retrieve_course_by_code() throws Exception {
-        courseRepository.save(new Course("java-1", "Java OO", "Java and Object Orientation: Encapsulation, Inheritance and Polymorphism."));
-        
+    	
         mockMvc.perform(get("/courses/java-1")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -52,24 +51,24 @@ class CourseControllerTest {
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.length()", is(2)))
-                .andExpect(jsonPath("$[0].code", is("spring-1")))
-                .andExpect(jsonPath("$[0].name", is("Spring Basics")))
-                .andExpect(jsonPath("$[0].shortDescription", is("Spring Cor...")))
-                .andExpect(jsonPath("$[1].code", is("spring-2")))
-                .andExpect(jsonPath("$[1].name", is("Spring Boot")))
-                .andExpect(jsonPath("$[1].shortDescription", is("Spring Boot")));
+                .andExpect(jsonPath("$.length()", is(4)))
+                .andExpect(jsonPath("$[2].code", is("spring-1")))
+                .andExpect(jsonPath("$[2].name", is("Spring Basics")))
+                .andExpect(jsonPath("$[2].shortDescription", is("Spring Cor...")))
+                .andExpect(jsonPath("$[3].code", is("spring-2")))
+                .andExpect(jsonPath("$[3].name", is("Spring Boot")))
+                .andExpect(jsonPath("$[3].shortDescription", is("Spring Boot")));
     }
 
     @Test
     void should_add_new_course() throws Exception {
-        NewCourseRequest newCourseRequest = new NewCourseRequest("java-2", "Java Collections", "Java Collections: Lists, Sets, Maps and more.");
+        NewCourseRequest newCourseRequest = new NewCourseRequest("java-3", "Java Lambdas", "Java Lambdas: Stream, Foreach, Filters and more.");
 
         mockMvc.perform(post("/courses")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonMapper.writeValueAsString(newCourseRequest)))
                 .andExpect(status().isCreated())
-                .andExpect(header().string("Location", "/courses/java-2"));
+                .andExpect(header().string("Location", "/courses/java-3"));
     }
 
 }
