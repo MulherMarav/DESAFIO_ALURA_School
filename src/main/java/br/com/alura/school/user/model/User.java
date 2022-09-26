@@ -40,8 +40,14 @@ public class User {
         this.username = username;
         this.email = email;
     }
+    
+    public User(@Size(max = 20) @NotBlank String username, @NotBlank @Email String email, UserRole role) {
+		this.username = username;
+		this.email = email;
+		this.role = role;
+	}
 
-    public String getUsername() {
+	public String getUsername() {
         return username;
     }
 
